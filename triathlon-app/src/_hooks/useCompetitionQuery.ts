@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "../lib/supabase";
 import { QUERY_KEYS } from "./queryKeys";
 
 export type Competition = {
@@ -29,12 +28,12 @@ export const useCompetitions = () => {
   });
 };
 
-const getCompetition = async () => {
-  const { data, error } = await supabase
-    .from("competitions")
-    .select("id, name, slug, date, location, distance_type")
-    .eq("is_published", true)
-    .order("date", { ascending: false });
-  if (error) throw error;
-  return data ?? [];
-};
+// const getCompetition = async () => {
+//   const { data, error } = await supabase
+//     .from("competitions")
+//     .select("id, name, slug, date, location, distance_type")
+//     .eq("is_published", true)
+//     .order("date", { ascending: false });
+//   if (error) throw error;
+//   return data ?? [];
+// };

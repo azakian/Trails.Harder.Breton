@@ -12,7 +12,7 @@ export function CompetitionsPage() {
       </div>
 
       {isLoading && <div>Chargement des compétitions...</div>}
-      {error && <div>Erreur: {(error as any).message}</div>}
+      {error && <div>Erreur: {error?.message}</div>}
 
       <div className="grid">
         {competitions?.map((competition) => (
