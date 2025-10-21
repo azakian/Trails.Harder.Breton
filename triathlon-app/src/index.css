@@ -44,16 +44,6 @@ a {
 .card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
-.table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.table th,
-.table td {
-  padding: 8px;
-  border-bottom: 1px solid var(--border);
-  text-align: left;
-}
 .header {
   margin-bottom: 24px;
 }
