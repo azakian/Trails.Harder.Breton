@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "../lib/supabase";
 import { QUERY_KEYS } from "./queryKeys";
 
 export type Athlete = {
@@ -62,18 +61,18 @@ export const useCompetitionResults = (competitionId?: string) => {
   });
 };
 
-const getCompetitionResults = async (competitionId: string) => {
-  const { data, error } = await supabase
-    .from("results")
-    .select(
-      `
-          id, bib_number, category, position_overall, position_category,
-          swim_seconds, t1_seconds, bike_seconds, t2_seconds, run_seconds, total_seconds,
-          athlete:athletes(id, display_name, avatar_url)
-        `
-    )
-    .eq("competition_id", competitionId)
-    .order("position_overall", { ascending: true });
-  if (error) throw error;
-  return data ?? [];
-};
+// const getCompetitionResults = async (competitionId: string) => {
+//   const { data, error } = await supabase
+//     .from("results")
+//     .select(
+//       `
+//           id, bib_number, category, position_overall, position_category,
+//           swim_seconds, t1_seconds, bike_seconds, t2_seconds, run_seconds, total_seconds,
+//           athlete:athletes(id, display_name, avatar_url)
+//         `
+//     )
+//     .eq("competition_id", competitionId)
+//     .order("position_overall", { ascending: true });
+//   if (error) throw error;
+//   return data ?? [];
+// };

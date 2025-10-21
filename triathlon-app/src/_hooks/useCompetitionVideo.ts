@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "../lib/supabase";
 
 export type Video = {
   id: string;
@@ -23,12 +22,12 @@ export const useCompetitionVideos = (competitionId?: string) => {
   });
 };
 
-const getCompetitionVideo = async (competitionId: string) => {
-  const { data, error } = await supabase
-    .from("videos")
-    .select("id, youtube_url, title, channel_name")
-    .eq("competition_id", competitionId)
-    .order("created_at", { ascending: false });
-  if (error) throw error;
-  return data ?? [];
-};
+// const getCompetitionVideo = async (competitionId: string) => {
+//   const { data, error } = await supabase
+//     .from("videos")
+//     .select("id, youtube_url, title, channel_name")
+//     .eq("competition_id", competitionId)
+//     .order("created_at", { ascending: false });
+//   if (error) throw error;
+//   return data ?? [];
+// };

@@ -30,9 +30,7 @@ export function CompetitionPage() {
 
   if (loadingComp) return <div className="container">Chargement...</div>;
   if (errorComp)
-    return (
-      <div className="container">Erreur: {(errorComp as any).message}</div>
-    );
+    return <div className="container">Erreur: {errorComp?.message}</div>;
   if (!competition)
     return <div className="container">Compétition introuvable</div>;
 
@@ -52,7 +50,7 @@ export function CompetitionPage() {
       <section className="card">
         <h2>Résultats</h2>
         {loadingRes && <div>Chargement des résultats...</div>}
-        {errorRes && <div>Erreur: {(errorRes as any).message}</div>}
+        {errorRes && <div>Erreur: {errorRes?.message}</div>}
         {!loadingRes && (
           <table className="table">
             <thead>
@@ -89,7 +87,7 @@ export function CompetitionPage() {
         <section className="card" style={{ marginTop: 16 }}>
           <h2>Vlogs YouTube</h2>
           {loadingVid && <div>Chargement des vidéos...</div>}
-          {errorVid && <div>Erreur: {(errorVid as any).message}</div>}
+          {errorVid && <div>Erreur: {errorVid?.message}</div>}
           <div
             className="grid"
             style={{
