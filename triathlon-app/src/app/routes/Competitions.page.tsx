@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { useCompetitions } from "../../_hooks/useCompetitionQuery";
+import { CompetitionCard } from "../../components/competition-card/CompetitionCard";
 
 export function CompetitionsPage() {
   const { data: competitions, isLoading, error } = useCompetitions();
@@ -16,19 +16,7 @@ export function CompetitionsPage() {
 
       <div className="grid">
         {competitions?.map((competition) => (
-          <div key={competition.id} className="card row">
-            <div>
-              <div style={{ fontWeight: 600 }}>{competition.name}</div>
-              <div className="muted">
-                {new Date(competition.date).toLocaleDateString()} —{" "}
-                {competition.location ?? "-"} —{" "}
-                {competition.distance_type ?? "-"}
-              </div>
-            </div>
-            <Link to={`/competitions/${competition.slug}`} className="btn">
-              Voir résultats
-            </Link>
-          </div>
+          <CompetitionCard key={competition.id} competition={competition} />
         ))}
       </div>
     </div>

@@ -1,10 +1,13 @@
 :root {
-  --bg: #0f172a;
-  --text: #e2e8f0;
-  --muted: #94a3b8;
-  --card: #1f2937;
-  --border: #334155;
-  --accent: #22c55e;
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --muted: #64748b;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --accent: #0ea5e9;
+  --accent-hover: #0284c7;
+  --secondary: #f97316;
+  --success: #10b981;
 }
 * {
   box-sizing: border-box;
@@ -32,8 +35,14 @@ a {
 .card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 .table {
   width: 100%;
@@ -60,11 +69,48 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+
 .btn {
   background: var(--accent);
-  color: black;
-  padding: 8px 12px;
-  border-radius: 6px;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile button styles */
+@media (max-width: 768px) {
+  .btn {
+    padding: 8px 12px;
+    font-size: 0.875rem;
+    font-weight: 400;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+
+  .btn:hover {
+    transform: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 6px 10px;
+    font-size: 0.8125rem;
+  }
 }
