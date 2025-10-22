@@ -1,0 +1,121 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.infoCard {
+  margin-bottom: 0;
+}
+
+.athleteName {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.75rem;
+  color: var(--text);
+}
+
+.infoGrid {
+  display: grid;
+  gap: 8px;
+}
+
+.infoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timesCard {
+  margin-bottom: 0;
+}
+
+.timesTitle {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.25rem;
+}
+
+.timesGrid {
+  display: grid;
+  gap: 12px;
+}
+
+.timeRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.timeRow.transition {
+  opacity: 0.7;
+}
+
+.discipline {
+  font-size: 1rem;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  margin-top: 8px;
+  font-size: 1.25rem;
+  border-bottom: none;
+}
+
+.totalTime {
+  color: var(--accent);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .container {
+    gap: 16px;
+  }
+
+  .athleteName {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .infoItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timesTitle {
+    font-size: 1.125rem;
+    margin-bottom: 12px;
+  }
+
+  .timeRow {
+    padding: 6px 0;
+  }
+
+  .totalRow {
+    font-size: 1.125rem;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .athleteName {
+    font-size: 1.25rem;
+  }
+
+  .discipline {
+    font-size: 0.9375rem;
+  }
+
+  .timeRow {
+    font-size: 0.875rem;
+  }
+
+  .totalRow {
+    font-size: 1rem;
+  }
+}

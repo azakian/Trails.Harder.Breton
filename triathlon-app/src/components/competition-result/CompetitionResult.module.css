@@ -1,0 +1,100 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background: var(--card);
+}
+
+.table th {
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(14, 165, 233, 0.05);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:active {
+  background-color: rgba(14, 165, 233, 0.1);
+}
+
+/* Mobile responsive - Card style layout */
+@media (max-width: 768px) {
+  .table {
+    border: 0;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tbody {
+    display: block;
+  }
+
+  .table tr {
+    display: block;
+    margin-bottom: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    text-align: right;
+  }
+
+  .table td:last-child {
+    border-bottom: none;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    text-align: left;
+    flex: 0 0 60%;
+    color: var(--muted);
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  .table tr {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .table td {
+    padding: 6px 0;
+    font-size: 0.875rem;
+  }
+
+  .table td::before {
+    font-size: 0.8125rem;
+  }
+}

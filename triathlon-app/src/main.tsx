@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { AthleteResultPage } from "./app/routes/AthleteResult.page";
 import { CompetitionPage } from "./app/routes/Competition.page";
 import { CompetitionsPage } from "./app/routes/Competitions.page";
 import "./index.css";
@@ -16,6 +17,10 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/" element={<Navigate to="/competitions" replace />} />
           <Route path="/competitions" element={<CompetitionsPage />} />
           <Route path="/competitions/:slug" element={<CompetitionPage />} />
+          <Route
+            path="/competitions/:slug/:athleteId"
+            element={<AthleteResultPage />}
+          />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
