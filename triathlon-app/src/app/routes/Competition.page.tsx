@@ -49,7 +49,9 @@ export function CompetitionPage() {
 
       {loadingRes && <div>Chargement des résultats...</div>}
       {errorRes && <div>Erreur: {errorRes?.message}</div>}
-      {!loadingRes && <CompetitionResult results={results ?? []} />}
+      {!loadingRes && compId && (
+        <CompetitionResult results={results ?? []} competitionId={compId} />
+      )}
 
       {loadingVid && <div>Chargement de la vidéo...</div>}
       {!!video && (

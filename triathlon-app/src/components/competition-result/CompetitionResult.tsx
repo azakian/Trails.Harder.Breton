@@ -1,11 +1,22 @@
+import { useNavigate } from "react-router-dom";
 import type { Result } from "../../_hooks/useCompetitionResult";
 import styles from "./CompetitionResult.module.css";
 
 type CompetitionResultProps = {
   results: Result[];
+  competitionId: string;
 };
 
-export const CompetitionResult = ({ results }: CompetitionResultProps) => {
+export const CompetitionResult = ({
+  results,
+  competitionId,
+}: CompetitionResultProps) => {
+  const navigate = useNavigate();
+
+  const handleRowClick = (athleteId: string) => {
+    navigate(`/competitions/${competitionId}/${athleteId}`);
+  };
+
   return (
     <table className={styles.table}>
       <thead>
@@ -17,7 +28,13 @@ export const CompetitionResult = ({ results }: CompetitionResultProps) => {
       </thead>
       <tbody>
         {results?.map((result) => (
-          <tr key={result.id}>
+          <tr
+            key={result.id}
+            onClick={() =>
+              result.athlete?.id && handleRowClick(result.athlete.id)
+            }
+            className={result.athlete?.id ? styles.clickable : ""}
+          >
             <td data-label="Pos Trails harder">
               {result.position_category ?? "-"}
             </td>
