@@ -22,11 +22,7 @@ export function CompetitionPage() {
     error: errorRes,
   } = useCompetitionResults(compId);
 
-  const {
-    data: video,
-    isLoading: loadingVid,
-    error: errorVid,
-  } = useCompetitionVideos(compId);
+  const { data: video, isLoading: loadingVid } = useCompetitionVideos(compId);
 
   if (loadingComp) return <div className="container">Chargement...</div>;
   if (errorComp)
